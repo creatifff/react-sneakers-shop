@@ -101,6 +101,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     button {
       display: flex;
@@ -134,8 +135,8 @@ main {
   .slide {
     display: flex;
     align-items: center;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 300px;
+    max-height: 300px;
     border-radius: 20px;
     overflow: hidden;
 

@@ -1,8 +1,8 @@
-const Slider = ({ childen }) => {
+const Slider = ({ children }) => {
   return (
     <section className="slider">
       <div className="wrapper">
-        <div className="slides">{childen}</div>
+        <div className="slides">{children}</div>
 
         <div className="controls">
           <button className="prev">
