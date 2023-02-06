@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from '../../assets/logo.svg';
-
+import logo from "../../assets/logo.svg";
 
 const CardButton = () => {
   return (
@@ -14,13 +13,16 @@ const CardButton = () => {
 const Header = () => {
   return (
     <header className="header">
-      <div className="logo">
-        <img src={logo} alt="React Sneakers logo" />
-        <div>
-          <h1>React Sneakers</h1>
-          <p>Магазин лучших кроссовок</p>
+      <NavLink className="logo__link" to="/">
+        <div className="logo">
+          <img src={logo} alt="React Sneakers logo" />
+          <div>
+            <h1>React Sneakers</h1>
+            <p>Магазин лучших кроссовок</p>
+          </div>
         </div>
-      </div>
+      </NavLink>
+
       <nav className="nav">
         <CardButton />
         <NavLink to="/favourites">

@@ -7,8 +7,8 @@
 }
 
 body {
-  background-color: #E7F6FF;
-  font-family: 'Inter', sans-serif;
+  background-color: #e7f6ff;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
 }
 
@@ -130,26 +130,216 @@ main {
     }
   }
 
-
-
   .slide {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     min-height: 300px;
     max-height: 300px;
     border-radius: 20px;
     overflow: hidden;
 
     .part {
-      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
       padding: 24px 0 24px 48px;
+
+      h2 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 38px;
+        line-height: 46px;
+
+        span {
+          color: #8bb43c;
+        }
+      }
     }
 
     img {
-      flex: 3;
+      display: block;
+      max-height: 300px;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+    }
+  }
+}
+
+.button {
+  text-decoration: none;
+  background-color: #a5d364;
+  color: #fff;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 110px;
+  padding: 16px 64px;
+
+  &.button--xl {
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.section {
+  margin-top: 40px;
+  &-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-family: "Inter", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 39px;
+      color: #000;
+    }
+  }
+}
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 16px 18px;
+  gap: 16px;
+
+  .icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    border: none;
+    outline: none;
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  border: 1px solid #f3f3f3;
+  border-radius: 24px;
+  padding: 30px 30px 32px 30px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    max-height: 112px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+      --size: 32px;
+      width: var(--size);
+      height: var(--size);
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #f8f8f8;
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      .text {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 13px;
+        text-transform: uppercase;
+
+        color: #bdbdbd;
+      }
+
+      .value {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+      }
+    }
+  }
+
+  h3 {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 14px 0;
+  }
+
+  &__action {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+
+    button {
+      --size: 32px;
+      width: var(--size);
+      height: var(--size);
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #f8f8f8;
     }
   }
 }
