@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SearchIcon } from "../components/Icons/Icons";
 import Product from "../components/product/Product";
-import Slide from "../components/slider/slide/Slide";
 import Slider from "../components/slider/Slider";
 import PRODUCTS from "../data/products";
 
@@ -18,9 +17,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Slider>
-        <Slide />
-      </Slider>
+      <Slider />
 
       <section className="section">
         <header className="section-header">
@@ -41,14 +38,11 @@ const HomePage = () => {
         </header>
 
         <div className="products">
-
             {
                 filteredProducts.length ? filteredProducts.map((product) => {
                     return <Product key={product.id} product={product} />;
                   }) : <h2>По запросу "{query}" ничего не найдено!</h2>
             }
-
-          {}
         </div>
       </section>
     </>
