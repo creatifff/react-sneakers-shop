@@ -3,32 +3,37 @@ import { Outlet } from "react-router-dom";
 import CartModal from "../components/cartModal/CartModal";
 import Header from "../components/header/Header";
 import useCart from "../hooks/useCart";
+import useFavourite from "../hooks/useFavourite";
 
 export const ModalContext = createContext({});
 export const CartContext = createContext({});
-
+export const FavouriteContext = createContext({});
 
 const Root = () => {
+  const [isModalActive, setIsModalActive] = useState(false);
 
-    const [isModalActive, setIsModalActive] = useState(false);
-    
-    const cart = useCart([]);
+  const cart = useCart([]);
+  const favourite = useFavourite([]);
 
-    const toggleModal = setIsModalActive.bind(this, !isModalActive);
+  console.log(favourite.favourites);
 
-    return (
-        <CartContext.Provider value={cart}>
+  const toggleModal = setIsModalActive.bind(this, !isModalActive);
+
+  return (
+    <FavouriteContext.Provider value={favourite}>
+      <CartContext.Provider value={cart}>
         <ModalContext.Provider value={{ isModalActive, toggleModal }}>
-        <div className="layout">
+          <div className="layout">
             <Header />
             <main>
-                <Outlet />
+              <Outlet />
             </main>
             <CartModal />
-        </div>
+          </div>
         </ModalContext.Provider>
-        </CartContext.Provider>
-    )
-}   
+      </CartContext.Provider>
+    </FavouriteContext.Provider>
+  );
+};
 
 export default Root;
