@@ -406,7 +406,7 @@ main {
     top: 0;
     bottom: 0;
     right: 0;
-    max-width: 25vw;
+    max-width: 385px;
     width: 100%;
     background-color: #fff;
     padding: 32px 30px 30px 30px;
@@ -427,7 +427,47 @@ main {
     }
 
     &-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      
+      .total {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        .row {
+          flex-direction: row;
+          display: flex;
+          font-size: 16px;
+          line-height: 19px;
+          color: #000000;
+          font-family: "Inter";
+          font-style: normal;
+
+          span {
+            min-width: max-content;
+          }
+
+          .text {
+            font-weight: 400;
+          }
+
+          .price {
+            font-weight: 600;
+          }
+
+          .underline {
+            width: 100%;
+            border-bottom: 1px dashed #dfdfdf;
+          }
+        }
+      }
     }
+  }
+
+  .w100 {
+    width: 100%;
   }
 }
 
@@ -440,7 +480,7 @@ main {
     border: 1px solid #f3f3f3;
     border-radius: 20px;
     padding: 20px;
-    display: flex;  
+    display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;

@@ -3,17 +3,16 @@ import { Outlet } from "react-router-dom";
 import CartModal from "../components/cartModal/CartModal";
 import Header from "../components/header/Header";
 import useCart from "../hooks/useCart";
-import PRODUCTS from '../data/products';
 
-export const ModalContext = createContext(null);
-export const CartContext = createContext(null);
+export const ModalContext = createContext({});
+export const CartContext = createContext({});
 
 
 const Root = () => {
 
     const [isModalActive, setIsModalActive] = useState(false);
     
-    const cart = useCart(PRODUCTS);
+    const cart = useCart([]);
 
     const toggleModal = setIsModalActive.bind(this, !isModalActive);
 

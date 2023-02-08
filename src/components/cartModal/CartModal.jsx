@@ -1,5 +1,8 @@
 import { useContext, useEffect, useRef } from "react";
 import { CartContext, ModalContext } from "../../pages/Root";
+import calculateTax from "../../utils/calculateTax";
+import cartTotal from "../../utils/cartTotal";
+import formatNumber from "../../utils/formatNumber";
 import CartItem from "../cartItem/CartItem";
 
 const CartModal = () => {
@@ -7,6 +10,9 @@ const CartModal = () => {
   const cart = useContext(CartContext);
 
   const overlayRef = useRef();
+
+  const total = cartTotal(cart.cartItems);
+  const totalTax = calculateTax(total, 5);
 
   const closeModal = (e) => {
     if (e.target === overlayRef.current) {
@@ -16,13 +22,13 @@ const CartModal = () => {
 
   useEffect(() => {
     if (isModalActive) {
-        document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-        document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
-    // Unmount 
-    return () => document.body.style.overflow = '';
+    // Unmount
+    return () => (document.body.style.overflow = "");
   }, [isModalActive]);
 
   return (
@@ -44,7 +50,22 @@ const CartModal = () => {
           </div>
         </div>
 
-        <footer className="modal-footer">footer</footer>
+        <footer className="modal-footer">
+          <div className="total">
+            <div className="row">
+              <span className="text">Итого:</span>
+              <div className="underline"></div>
+              <span className="price">{formatNumber(total)}</span>
+            </div>
+            <div className="row">
+              <span className="text">Налог 5%:</span>
+              <div className="underline"></div>
+              <span className="price">{formatNumber(totalTax)}</span>
+            </div>
+          </div>
+
+          <button className="button w100">Оформить заказ</button>
+        </footer>
       </div>
     </div>
   );

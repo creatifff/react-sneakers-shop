@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "../../pages/Root";
 import formatNumber from "../../utils/formatNumber";
 import { HeartIcon, AddIcon } from "../Icons/Icons";
 
 const Product = ({ product }) => {
+
+  const {addToCart} = useContext(CartContext);
+
   return (
     <div className="product">
       <div className="product__action">
@@ -18,7 +23,7 @@ const Product = ({ product }) => {
           <span className="value">{formatNumber(product.price)}</span>
         </div>
 
-        <button>
+        <button onClick={addToCart.bind(this, product)}>
           <AddIcon size={18} />
         </button>
       </div>
