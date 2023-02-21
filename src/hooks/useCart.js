@@ -18,8 +18,8 @@ const useCart = (initialValue = [], key = "cart") => {
     });
 
     useEffect(() => {
-      if (!StorageService.isNull('')) {
-        setCartItems(StorageService.get('cart'));
+      if (!StorageService.isNull(key)) {
+        setCartItems(StorageService.get(key));
       }
     }, [])
 
@@ -27,7 +27,12 @@ const useCart = (initialValue = [], key = "cart") => {
       StorageService.set(key, cartItems);
     }, [cartItems.length])
 
-  return { cartItems, setCartItems, addToCart, removeCartItemById };
+  return { 
+    cartItems, 
+    setCartItems, 
+    addToCart, 
+    removeCartItemById 
+  };
 };
 
 export default useCart;
